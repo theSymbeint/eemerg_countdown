@@ -16,7 +16,7 @@
 		 * Background image
 		/* ---------------------------------------------- */
 
-		$.backstretch(['assets/images/eemergcountdown.jpg']);
+		$.backstretch(['assets/images/eemerg_red_tow.jpg']);
 		
 		/* ---------------------------------------------- /*
 		 * Animation scroll
