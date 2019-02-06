@@ -5,8 +5,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="">
 	<meta name="author" content="">
+	<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-NJCVDTT');</script>
+		<!-- End Google Tag Manager -->
 
-	<title>Eemerg Sign Up</title>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-5652116-5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-5652116-5');
+</script>
+
+	<title>Eemerg</title>
 
 	<!-- CSS -->
 	<!-- Bootstrap core CSS -->
@@ -47,11 +64,11 @@
 
 					<div class="i_cicle">
 						<!-- Timer: Your date here -->
-						<div class="countdown-time animated bounceIn" data-date="2019-02-01 08:00:00" data-timer="100"></div>
+						<div class="countdown-time animated bounceIn" data-date="2019-03-01 08:00:00" data-timer="100"></div>
 					</div>
 
 					<div class="i_footer">
-						<a href="https://www.eemerg.com" class="btn btn-default btn-lg btn-theme">Sign Up Now</a>
+						<a href="https://spsignup.eemerg.com" class="btn btn-default btn-lg btn-theme">Sign Up Now</a>
 					</div>
 
 				</div>
@@ -70,7 +87,7 @@
 				<div class="col-md-12">
 					<h2>Roadside Assistance Reimagined</h2>
 					<div class="header-deveider"></div>
-					<p class="wow fadeInUp">  Eemerg is building nationwide network of qualified service providers to help with towing, jump starts, flat tire changes, emergency fuel delivery, and locksmith services and we need your help.  With your help we can provide consumers the best pricing available in the area.  Eemerg roadside assistance marketplace is here to help you reach thousand of people needing roadside assistance now.  Come be a part of our team!</p>
+					<p class="wow fadeInUp">  Eemerg is building a nationwide network of qualified service providers to help with towing, jump starts, flat tire changes, emergency fuel delivery, and locksmith services, and we need your help.  With your help we can provide consumers the best pricing available in the area.  Eemerg roadside assistance marketplace is here to help you reach thousand of people needing roadside assistance now.  Come be a part of our team!</p>
 				</div>
 
 			</div>
@@ -108,7 +125,7 @@
 							<i class="fa fa-money"></i>
 						</div>
 						<h3>No Membership Fees</h3>
-						<p>Eemerg is open platform for customers and service providers.  There are no membership fees. Sign up and start sending service bids today!</p>
+						<p>Eemerg is an open platform for customers and service providers.  There are no membership fees. Sign up and start sending service bids today!</p>
 					</div>
 				</div>
 
@@ -118,7 +135,7 @@
 							<i class="fa fa-credit-card"></i>
 						</div>
 						<h3>Hassel Free Payments</h3>
-						<p>Payment for service calls will be paid weekly directly to the account of your choice.</p>
+						<p>Payments for service calls will be paid weekly directly to the account of your choice.</p>
 					</div>
 				</div>
 
@@ -133,7 +150,7 @@
 
 	<footer class="footer">
 		<div class="container">
-			<div class="row">
+			<div class="row"><i class="mdi mdi-led-strip"></i>
 
 				<div id="subscribe" class="col-md-12 subtitle">
 					<h2>Subscribe</h2>
@@ -141,22 +158,22 @@
 					<p class="wow fadeInUp">Get the latest Eemerg news by signing up for our newletter. </p>
 				</div>
 
-				<div class="col-md-12">
+				<div class="col-md-12" id="sub-form-con" >
 					<form class="subscription-form form-inline wow fadeInUp" role="form">
 						<div class="form-group">
 							<label class="sr-only" for="sub-email">Your Email</label>
 							<input type="email" id="sub-email" name="sub-email" class="form-control input-box" placeholder="Your Email" >
 						</div>
-						<button type="submit" class="btn btn-default btn-theme"><i class="fa fa-rss"></i> Subscribe</button>
+						<button id="sub-btn" onclick="sendMail()" type="submit" class="btn btn-default btn-theme"><i class="fa fa-rss"></i> Subscribe</button>
 					</form>
 					<div class="subscription-message"></div>
 				</div>
 
 				<div id="share" class="col-md-12 wow fadeInUp">
 					<ul class="socials-links">
-						<li><a href=""><i class="fa fa-facebook-square"></i></a></li>
+						<li><a href="https://www.facebook.com/Eemerg/"><i class="fa fa-facebook-square"></i></a></li>
 						<li><a href=""><i class="fa fa-google-plus-square"></i></a></li>
-						<li><a href=""><i class="fa fa-instagram"></i></a></li>
+						<li><a href="https://www.instagram.com/eemergroadside/"><i class="fa fa-instagram"></i></a></li>
 					</ul>
 					<p class="copyright">
 						© 2019 Eemerg LLC, All Rights Reserved
@@ -184,6 +201,43 @@
 	<script src="assets/js/smoothscroll.js"></script>
 	<!-- Custom scripts -->
 	<script src="assets/js/custom.js"></script>
+	<script>
+		function getInput(){
+			return $('#sub-email').val();
+		}
+
+		function validEmail(mail) {
+			var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+ 			if (mail.match(mailformat)){
+    			return (true)
+  			}
+    		return (false)
+		}
+
+		function thankYou(){
+			$('#sub-form-con').html("THANK YOU!")
+		}
+
+		function sendMail(){
+		const val = getInput();
+		if(val == "" || val == undefined || !validEmail(val)){
+			alert("Please enter valid email address")
+		}else{
+			$.ajax({
+            type:"POST",
+            url:"https://us-central1-eemerg-pro.cloudfunctions.net/sub_to_email_list",
+            data:{email:val},
+            success:thankYou(),
+            dataType:"json"
+        })
+		}	
+        
+    }
+	</script>
 
 </body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NJCVDTT"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 </html>
